@@ -1,0 +1,17 @@
+{
+  "name": "haskell-ignore",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "bin": {
+    "h-ignore" : "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wk <somnuk.wk@gmail.com> (https://github.com/wk-j)",
+  "license": "ISC"
+}

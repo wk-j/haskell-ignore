@@ -8,7 +8,7 @@ import System.FilePath.Posix (joinPath)
 ignore :: IO()
 ignore = do
     dir <- getCurrentDirectory
-    let ignoreFile = joinPath [dir, ".gitignorexxx"]
+    let ignoreFile = joinPath [dir, ".gitignore"]
     exist <- doesFileExist ignoreFile
 
     if not exist then do
@@ -17,6 +17,7 @@ ignore = do
                 , ".DS_Store"
                 , "pacakges"
                 , "node_modules"
+                , "**/*.js.map"
                 , ".stack-work"
                 , "bin"
                 , "obj"]
@@ -25,7 +26,7 @@ ignore = do
 
         mapM (appendFile ignoreFile) ignoreLines
         
-        putStrLn "ok"
+        putStrLn "-- ok"
     else
         putStrLn "-- .gitignore already exist."
 
