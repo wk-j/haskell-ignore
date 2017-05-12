@@ -23,9 +23,7 @@ ignore = do
                 , "obj"]
 
         let ignoreLines = map (\x -> x ++ "\n") ignoreList
-
         mapM (appendFile ignoreFile) ignoreLines
-        
         putStrLn "-- ok"
     else
         putStrLn "-- .gitignore already exist."
