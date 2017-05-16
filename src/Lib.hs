@@ -1,5 +1,5 @@
 module Lib
-    ( ignore 
+    ( ignore
     ) where
 
 import System.Directory (getCurrentDirectory, doesFileExist)
@@ -12,21 +12,19 @@ ignore = do
     exist <- doesFileExist ignoreFile
 
     if not exist then do
-        let ignoreList = 
+        let ignoreList =
                 [ "dist"
                 , ".DS_Store"
-                , "pacakges"
+                , "packages"
+                , "tools"
                 , "node_modules"
                 , "**/*.js.map"
                 , ".stack-work"
                 , "bin"
                 , "obj"]
 
-        let ignoreLines = map (\x -> x ++ "\n") ignoreList
-        mapM (appendFile ignoreFile) ignoreLines
+        let ignoreLines = map (++ "\n") ignoreList
+        mapM_ (appendFile ignoreFile) ignoreLines
         putStrLn "-- ok"
     else
         putStrLn "-- .gitignore already exist."
-
-
-
